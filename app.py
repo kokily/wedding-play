@@ -6,7 +6,28 @@ import logging
 logging.basicConfig(level=logging.ERROR)
 
 ## constants
-covid1_hour = 
+covid_hour1 = 8
+covid_minute1 = 39
+covid_hour2 = 8
+covid_minute2 = 41
+covid_hour3 = 12
+covid_minute3 = 30
+covid_hour4 = 12
+covid_minute4 = 50
+covid_hour5 = 14
+covid_minute5 = 00
+covid_hour6 = 14
+covid_minute6 = 20
+covid_hour7 = 15
+covid_minute7 = 30
+covid_hour8 = 15
+covid_minute8 = 50
+covid_hour9 = 17
+covid_minute9 = 00
+covid_hour10 = 17
+covid_minute10 = 20
+
+
 filenames = [
   'data/001.mp3','data/002.mp3','data/003.mp3','data/004.mp3','data/005.mp3','data/006.mp3','data/007.mp3','data/008.mp3','data/009.mp3','data/010.mp3',
   'data/011.mp3','data/012.mp3','data/013.mp3','data/014.mp3','data/015.mp3','data/016.mp3','data/017.mp3','data/018.mp3','data/019.mp3','data/020.mp3',
@@ -34,7 +55,25 @@ def playsound(soundfile):
   while pygame.mixer.get_busy():
     current_time = dt.datetime.now()
 
-    if current_time.hour == 14 and current_time.minute == 37 and current_time.second == 0:
+    if current_time.hour == covid_hour1 and current_time.minute == covid_minute1 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour2 and current_time.minute == covid_minute2 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour3 and current_time.minute == covid_minute3 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour4 and current_time.minute == covid_minute4 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour5 and current_time.minute == covid_minute5 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour6 and current_time.minute == covid_minute6 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour7 and current_time.minute == covid_minute7 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour8 and current_time.minute == covid_minute8 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour9 and current_time.minute == covid_minute9 and current_time.second == 0:
+      sound.stop()
+    elif current_time.hour == covid_hour10 and current_time.minute == covid_minute10 and current_time.second == 0:
       sound.stop()
     else:      
       clock.tick(1000)
@@ -71,12 +110,48 @@ try:
   while True:    
     current_time = dt.datetime.now()
 
-    if current_time.hour == 14 and current_time.minute == 37 and current_time.second == 1:
+    if current_time.hour == covid_hour1 and current_time.minute == covid_minute1 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour2 and current_time.minute == covid_minute2 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour3 and current_time.minute == covid_minute3 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour4 and current_time.minute == covid_minute4 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour5 and current_time.minute == covid_minute5 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour6 and current_time.minute == covid_minute6 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour7 and current_time.minute == covid_minute7 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour8 and current_time.minute == covid_minute8 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour9 and current_time.minute == covid_minute9 and current_time.second == 1:
+      print("Covid19 Caution Print......")
+      playcovid()
+      stopmusic()
+    elif current_time.hour == covid_hour10 and current_time.minute == covid_minute10 and current_time.second == 1:
       print("Covid19 Caution Print......")
       playcovid()
       stopmusic()
     else:
-      print(sound_num)
+      print(sound_num, "번 곡을 재생합니다")
       print("Playing...Memory -", filenames[sound_num - 1])
       playsound(filenames[sound_num - 1])
       
