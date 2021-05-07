@@ -2,6 +2,7 @@ import os.path
 import pygame
 import time
 import random
+import keyboard
 import datetime as dt
 import sys, traceback
 import logging
@@ -45,6 +46,10 @@ def playsound(soundfile):
         current_time == covid7 + ":00" or current_time == covid8 + ":00" or \
         current_time == covid9 + ":00" or current_time == covid10 + ":00":
       sound.stop()
+    elif keyboard.is_pressed('c'):
+      sound.stop()
+      print("<강제> 코로나 방송 송출 중... 이후 음악이 다시 재생됩니다. " + current_time)
+      playcovid()
     else:
       clock.tick(1000)
 
@@ -74,7 +79,8 @@ def initMixer():
   pygame.mixer.init(FREQ, SIZE, CHAN, BUFFER)
 
 def playcaution():
-  print("Covid19 Caution Print.....")
+  current_time = dt.datetime.now().strftime("%H:%M:%S")
+  print("코로나19 안내 방송 중... ->" + current_time)
   playcovid()
   stopmusic()
 
@@ -92,7 +98,7 @@ try:
       playcaution()
     else:
       target = random.choice(filenames)
-      print("♪~♬ playing song → ", target)
+      print("♪~♬ 음악 재생 중 → ", target)
       playsound(target)
       stopmusic()
     
