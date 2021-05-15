@@ -11,18 +11,18 @@ logging.basicConfig(level=logging.ERROR)
 ## constants
 covid1 = "10:50"
 covid2 = "11:20"
-covid3 = "12:30"
+covid3 = "12:20"
 covid4 = "12:50"
-covid5 = "14:00"
+covid5 = "13:50"
 covid6 = "14:20"
-covid7 = "15:30"
+covid7 = "15:20"
 covid8 = "15:50"
-covid9 = "17:00"
+covid9 = "16:50"
 covid10= "17:20"
 
 folder = "data/"
 filenames = []
-covidname = 'data/covid/covid19.mp3'
+covidname = 'covid/covid19.mp3'
 files = os.listdir(folder)
 
 for i in files:
@@ -34,7 +34,7 @@ def playsound(soundfile):
   sound = pygame.mixer.Sound(soundfile)
   clock = pygame.time.Clock()
 
-  sound.set_volume(0.2)
+  sound.set_volume(0.05)
   sound.play()
 
   while pygame.mixer.get_busy():
@@ -46,7 +46,7 @@ def playsound(soundfile):
         current_time == covid7 + ":00" or current_time == covid8 + ":00" or \
         current_time == covid9 + ":00" or current_time == covid10 + ":00":
       sound.stop()
-    elif keyboard.is_pressed('c'):
+    elif keyboard.is_pressed('p'):
       sound.stop()
       print("<강제> 코로나 방송 송출 중... 이후 음악이 다시 재생됩니다. " + current_time)
       playcovid()
