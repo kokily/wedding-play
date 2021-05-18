@@ -4,7 +4,7 @@ import time
 import random
 import keyboard
 import datetime as dt
-import sys, traceback
+import traceback
 import logging
 logging.basicConfig(level=logging.ERROR)
 
@@ -28,14 +28,14 @@ files = os.listdir(folder)
 for i in files:
   filenames.append(folder + i)
 
-def playsound(soundfile):
+def play_bgm(file):
   pygame.init()
   pygame.mixer.init()
-  sound = pygame.mixer.Sound(soundfile)
+  music = pygame.mixer.Sound(file)
   clock = pygame.time.Clock()
 
-  sound.set_volume(0.05)
-  sound.play()
+  music.set_volume(0.04)
+  music.play()
 
   while pygame.mixer.get_busy():
     current_time = dt.datetime.now().strftime("%H:%M:%S")
@@ -45,15 +45,15 @@ def playsound(soundfile):
         current_time == covid5 + ":00" or current_time == covid6 + ":00" or \
         current_time == covid7 + ":00" or current_time == covid8 + ":00" or \
         current_time == covid9 + ":00" or current_time == covid10 + ":00":
-      sound.stop()
+      music.stop()
     elif keyboard.is_pressed('p'):
-      sound.stop()
+      music.stop()
       print("<강제> 코로나 방송 송출 중... 이후 음악이 다시 재생됩니다. " + current_time)
-      playcovid()
+      play_covid()
     else:
       clock.tick(1000)
 
-def playcovid():
+def play_covid():
   pygame.init()
   pygame.mixer.init()
   sound = pygame.mixer.Sound(covidname)
@@ -65,7 +65,7 @@ def playcovid():
   while pygame.mixer.get_busy():    
     clock.tick(1000)
 
-def stopmusic():
+def stop_bgm():
   pygame.mixer.music.stop()
 
 def getmixerargs():
@@ -81,8 +81,8 @@ def initMixer():
 def playcaution():
   current_time = dt.datetime.now().strftime("%H:%M:%S")
   print("코로나19 안내 방송 중... ->" + current_time)
-  playcovid()
-  stopmusic()
+  play_covid()
+  stop_bgm()
 
 try:
   initMixer()
@@ -98,13 +98,13 @@ try:
       playcaution()
     else:
       target = random.choice(filenames)
-      print("♪~♬ 음악 재생 중 → ", target)
-      playsound(target)
-      stopmusic()
+      print("♪~♬ 음악 재생 중 → " + target + " <" + current_time + ">")
+      play_bgm(target)
+      stop_bgm()
     
     time.sleep(1)
 except KeyboardInterrupt:
-  stopmusic()
+  stop_bgm()
   print("\n Play stopped by user")
 except Exception:
   logging.error(traceback.format_exc())
