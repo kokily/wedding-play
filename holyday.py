@@ -24,6 +24,10 @@ folder = "data/"
 filenames = []
 covidname = 'covid/covid19.mp3'
 files = os.listdir(folder)
+remove_store = 'data/.DS_Store'
+
+if os.path.isfile(remove_store):
+  os.remove(remove_store)
 
 for i in files:
   filenames.append(folder + i)
